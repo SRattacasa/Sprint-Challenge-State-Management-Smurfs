@@ -5,8 +5,8 @@ import {postAPI} from '../actions/actions'
 import e from 'express';
 
 const NewSmurf = () => {
-  // const { register, handleSubmit, errors } = useForm();
-  // const onSubmit = data => postAPI(data)
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = data => postAPI(data)
 
   const onSubmit = e => {
     e.preventDefault(),

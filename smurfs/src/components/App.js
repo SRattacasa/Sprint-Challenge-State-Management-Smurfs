@@ -1,11 +1,8 @@
 import React from "react";
 import "./App.css";
-import axios from 'axios'
 
-import SmurfList from "./SmurfList";
-import {SmurfContext} from '../contexts/SmurfContext'
 import Smurf from "./Smurf";
-import NewSmurf from "./NewSmurf";
+import AddSmurf from '../components/AddSmurf'
 
 const App = () =>
    {
@@ -15,7 +12,8 @@ const App = () =>
     return (
       <div className="App">
         <Smurf />
-      <NewSmurf />
+        <AddSmurf />
+      
       
         
         

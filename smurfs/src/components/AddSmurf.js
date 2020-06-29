@@ -1,21 +1,27 @@
 import React, {useState} from 'react'
+import {postAPI} from '../actions/actions'
+import { connect } from "react-redux";
 
-const AddSmurf = () => { 
+const mapStateToProps = state => { 
+  return { 
+  state
+  }
+}
 
-    
+const AddSmurf = props => { 
+
+  
+  
     const formSubmit = (e) => {
         e.preventDefault();
-        console.log("Form submitted");
-        axios.post('https://reqres.in/api/users', formState)
-        .then(response => {console.log(response)
-            setuserState([...userState, response.data.name])})
-        .catch(error => {console.log(error)})
-      };
+        console.log("Form submitted", formState);
+        props.postAPI(formState)
+    }
     
 
       const inputChange = (e) => {
         e.persist();
-        validate(e);
+        
         let value =
           e.target.type === "checkbox" ? e.target.checked : e.target.value;
         setformState({ ...formState, [e.target.name]: value });
@@ -23,8 +29,9 @@ const AddSmurf = () => {
 
     const [formState, setformState] = useState({
         name: "",
-        age: "",
+        age: 22,
         height: "",
+        id: "",
       });
       
     return (
@@ -38,33 +45,39 @@ const AddSmurf = () => {
               value={formState.name}
               onChange={inputChange}
             />
-             {errorState.name.length > 0 ? (
-              <p>{errorState.name} </p>
-            ) : null}
+             
           </label>
           <br></br>
-          <label htmlFor="password">
-            Password
+          <label htmlFor="age">
+            Age
             <input
-              type="password"
-              name="password"
-              value={formState.password}
+              type="text"
+              name="age"
+              value={formState.age}
               onChange={inputChange}
             />
-            {errorState.password.length > 0 ? (
-              <p>{errorState.password} </p>
-            ) : null}
+           
           </label>
           <br></br>
-          <label htmlFor="email">
-            Email address{" "}
+          <label htmlFor="height">
+          height{" "}
             <input
-              type="email"
-              name="email"
-              value={formState.email}
+              type="height"
+              name="height"
+              value={formState.height}
               onChange={inputChange}
             />
-            {errorState.email.length > 0 ? <p>{errorState.email} </p> : null}
+            
+          </label>
+          <label htmlFor="id">
+          id{" "}
+            <input
+              type="id"
+              name="id"
+              value={formState.id}
+              onChange={inputChange}
+            />
+            
           </label>
           
          
@@ -76,3 +89,5 @@ const AddSmurf = () => {
         </div>
     )
 }
+
+export default connect(mapStateToProps, {postAPI})(AddSmurf)

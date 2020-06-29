@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
-import {fetchAPI} from '../actions/actions'
+import {fetchAPI, postAPI} from '../actions/actions'
 
 const mapStateToProps = state => { 
     return { 
@@ -17,7 +17,7 @@ const Smurf =  props => {
     return (
         <div>
             
-            {console.log("PROPS", props.state.smurfs)}
+            {/* {console.log("PROPS", props.state.smurfs)} */}
             {props.state.smurfs && props.state.smurfs.map(item =>{
                 return <h1>{item.name}</h1>
             })}
@@ -25,4 +25,4 @@ const Smurf =  props => {
     )
 }
 
-export default connect(mapStateToProps,{fetchAPI})(Smurf)
+export default connect(mapStateToProps,{fetchAPI, postAPI})(Smurf)

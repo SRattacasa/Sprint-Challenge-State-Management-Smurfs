@@ -1,8 +1,8 @@
-import React, {createContext} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
-import {SmurfContext} from './contexts/SmurfContext'
+// import {SmurfContext} from './contexts/SmurfContext'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {mainReducer} from './reducers/mainReducer'

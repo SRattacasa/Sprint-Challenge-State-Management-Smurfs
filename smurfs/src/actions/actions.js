@@ -12,15 +12,14 @@ export const fetchAPI = () => {
     }
 }
 
-export const postAPI = data => {
-    console.log(data)
-    return dispatch => {
-        dispatch({type: "POST_API" })
+export const postAPI = data => dispatch => 
+    
+    {
+        {console.log("postAPI", data)}
         axios.post('http://localhost:3333/smurfs', data)
         .then(response => {
-            // dispatch({type: "POST_SMURF_SUCCESS"})
-            console.log("RESPONSE DATA", response)
+            console.log("after i posted the data DATA", response)
+            dispatch({type: "POST_SMURF_SUCCESS", payload: data})
         })
         .catch(err => console.log("ERROR", err))
     }
-}
