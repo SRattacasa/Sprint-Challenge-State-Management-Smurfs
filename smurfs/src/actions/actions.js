@@ -11,3 +11,16 @@ export const fetchAPI = () => {
         .catch(err => console.log("ERROR", err))
     }
 }
+
+export const postAPI = data => {
+    console.log(data)
+    return dispatch => {
+        dispatch({type: "POST_API" })
+        axios.post('http://localhost:3333/smurfs', data)
+        .then(response => {
+            // dispatch({type: "POST_SMURF_SUCCESS"})
+            console.log("RESPONSE DATA", response)
+        })
+        .catch(err => console.log("ERROR", err))
+    }
+}

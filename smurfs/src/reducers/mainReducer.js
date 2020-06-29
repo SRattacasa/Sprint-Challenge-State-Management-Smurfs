@@ -15,9 +15,19 @@ export const mainReducer = (state = initialState, action) => {
         return {
             state
         }        
+        case "POST_API":
+            console.log("POSTING")
+        return {
+            state
+        }        
         case "FETCH_SMURF_SUCCESS":
             console.log("PAYLOAD?", action.payload)
             
+        return {
+            smurfs: action.payload
+        } 
+        case "POST_SMURF_SUCCESS":
+            console.log("POST?", action.payload)
         return {
             smurfs: action.payload
         } 
